@@ -180,7 +180,7 @@ class Selfbot(commands.Bot):
         self.messages_sent += 1
         self.last_message = time.time()
         if message.content == ".ping":
-            await client.send("Pong!")
+            await self.bot.say("Pong!")
         await self.process_commands(message)
     
     async def on_member_update(self, before, after):
@@ -205,7 +205,7 @@ class Selfbot(commands.Bot):
         em.description = f'{self.ws.latency * 1000:.4f} ms'
         em.color = await ctx.get_dominant_color(ctx.author.avatar_url)
         try:
-            await ctx.dele(embed=em)
+            await ctx.send(embed=em)
         except discord.HTTPException:
             em_list = await embedtobox.etb(emb)
             for page in em_list:
