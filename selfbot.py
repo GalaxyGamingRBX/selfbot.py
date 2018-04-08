@@ -41,6 +41,8 @@ import textwrap
 from PIL import Image
 import io
 
+fucksNum = 5
+
 class Selfbot(commands.Bot):
     '''
     Custom Client for selfbot.py - Made by verix#7200
@@ -214,6 +216,35 @@ class Selfbot(commands.Bot):
         """Give you the book of the day"""
         try:
             await ctx.send(":green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart:")
+        except discord.HTTPException:
+            em_list = await embedtobox.etb(emb)
+            for page in em_list:
+                await ctx.send(page)
+    @commands.command()
+    async def numfucks(self, ctx):
+        """Give you the book of the day"""
+        try:
+            await ctx.send("You currently have **%s** fucks left." % (fucksNum))
+        except discord.HTTPException:
+            em_list = await embedtobox.etb(emb)
+            for page in em_list:
+                await ctx.send(page)
+    @commands.command()
+    async def fuck(self, ctx):
+        """Give you the book of the day"""
+        try:
+            await ctx.send("You have used **1** fuck. Fuck!")
+            fucksNum = fucksNum -1
+        except discord.HTTPException:
+            em_list = await embedtobox.etb(emb)
+            for page in em_list:
+                await ctx.send(page)
+    @commands.command()
+    async def reloadfucks(self, ctx):
+        """Give you the book of the day"""
+        try:
+            await ctx.send("You have been given **5** fucks.")
+            fucksNum = fucksNum +5
         except discord.HTTPException:
             em_list = await embedtobox.etb(emb)
             for page in em_list:
