@@ -180,7 +180,7 @@ class Selfbot(commands.Bot):
         self.messages_sent += 1
         self.last_message = time.time()
         if message.content == ".ping":
-            await self.bot.say("Pong!")
+            await self.send("Pong!")
         await self.process_commands(message)
     
     async def on_member_update(self, before, after):
