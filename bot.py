@@ -15,4 +15,4 @@ async def on_message(message):
        if message.content == ".ping":
           await client.say("Ooooo")
 
-await client.login('zaneaswierz@gmail.com', 'Zane0610')
+client.login('zaneaswierz@gmail.com', 'Zane0610')
