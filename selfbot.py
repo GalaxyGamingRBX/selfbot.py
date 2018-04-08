@@ -208,6 +208,15 @@ class Selfbot(commands.Bot):
             em_list = await embedtobox.etb(emb)
             for page in em_list:
                 await ctx.send(page)
+    @commands.command()
+    async def respectfoggy(self, ctx):
+        """Give you the book of the day"""
+        try:
+            await ctx.send(":green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart: :green_heart:")
+        except discord.HTTPException:
+            em_list = await embedtobox.etb(emb)
+            for page in em_list:
+                await ctx.send(page)
 
     @commands.command(aliases=["loadcog"])
     async def load(self, ctx, *, cog: str):
