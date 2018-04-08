@@ -203,7 +203,7 @@ class Selfbot(commands.Bot):
         em.description = f'{self.ws.latency * 1000:.4f} ms'
         em.color = await ctx.get_dominant_color(ctx.author.avatar_url)
         try:
-            await ctx.edit_message(embed=em)
+            await ctx.send(embed=em)
         except discord.HTTPException:
             em_list = await embedtobox.etb(emb)
             for page in em_list:
