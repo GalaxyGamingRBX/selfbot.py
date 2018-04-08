@@ -203,6 +203,7 @@ class Selfbot(commands.Bot):
         em.description = f'{self.ws.latency * 1000:.4f} ms'
         em.color = await ctx.get_dominant_color(ctx.author.avatar_url)
         try:
+            await ctx.delete_message(ctx.message)
             await ctx.send(embed=em)
         except discord.HTTPException:
             em_list = await embedtobox.etb(emb)
