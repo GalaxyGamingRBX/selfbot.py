@@ -64,6 +64,7 @@ class Selfbot(commands.Bot):
         self.commands_used = defaultdict(int)
         self.remove_command('help')
         self.add_command(self.ping)
+        self.add_command(self.respectfoggy)
         self.load_extensions()
         self.add_command(self.load)
         self.add_command(self.reloadcog)
