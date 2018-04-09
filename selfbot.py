@@ -42,6 +42,7 @@ from PIL import Image
 import io
 
 fucksNum = 5
+import random
 
 class Selfbot(commands.Bot):
     '''
@@ -247,6 +248,24 @@ class Selfbot(commands.Bot):
         """Give you the book of the day"""
         try:
             await ctx.send("You have been given **5** fucks.")
+            fucksNum = fucksNum +5
+        except discord.HTTPException:
+            em_list = await embedtobox.etb(emb)
+            for page in em_list:
+                await ctx.send(page)
+    @commands.command()
+    async def 8ball(self, ctx, now: str):
+        """Give you the book of the day"""
+        randnum = random.randint(1,3)
+        em = discord.Embed()
+        em.title ='8ball'
+        if randnum == 1:
+           em.description = 'I say no.'
+        if randnum == 2:
+            em.description = 'I say yes.'
+        em.color = await ctx.get_dominant_color(ctx.author.avatar_url)
+        try:
+            await ctx.send(embed=em)
             fucksNum = fucksNum +5
         except discord.HTTPException:
             em_list = await embedtobox.etb(emb)
