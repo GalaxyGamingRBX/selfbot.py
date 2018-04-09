@@ -254,7 +254,7 @@ class Selfbot(commands.Bot):
             for page in em_list:
                 await ctx.send(page)
     @commands.command()
-    async def 8ball(self, ctx, now: str):
+    async def ball(self, ctx, now: str):
         """Give you the book of the day"""
         randnum = random.randint(1,3)
         em = discord.Embed()
